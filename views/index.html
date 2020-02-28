@@ -109,12 +109,23 @@
         table tr td {
             font-size: 22px;
         }
+
+        /* 
+        @media only screen and (max-width: 767px) {
+
+            .ui.table:not(.unstackable) tbody,
+            .ui.table:not(.unstackable) tr,
+            .ui.table:not(.unstackable) tr>td,
+            .ui.table:not(.unstackable) tr>th {
+                display: auto !important;
+            }
+        } */
     </style>
 </head>
 
 <body>
     <div id="container">
-        <table id="tabla" class="ui table celled inverted">
+        <table id="tabla" class="ui table celled inverted unstackable">
         </table>
     </div>
     <script>
@@ -131,9 +142,9 @@
             var html = "";
             for (x = 0; x < datos.length; x++) {
                 html += "<tr>" +
-                    "<td style='width: 60px !important;'>" + datos[x].linea + "</td>" +
-                    "<td>" + datos[x].descripcion + "</td>" +
-                    "<td>" +
+                    "<td class='two wide' style='text-align: center;'>" + datos[x].linea + "</td>" +
+                    "<td class='twelve wide'>" + datos[x].descripcion + "</td>" +
+                    "<td class='two wide' style='text-align: center;'>" +
                     "<span class='numero'>" + datos[x].tiempo + "</span><span class='minutos'>min</span>" +
                     "</td>" +
                     "</tr>";
@@ -142,34 +153,34 @@
             document.getElementById("tabla").innerHTML = html;
         }
 
-        // CargarTabla();
+        CargarTabla();
 
-        function loadDoc() {
-            var xhttp = new XMLHttpRequest();
-            var html = "";
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    console.log(JSON.parse(this.responseText));
-                    var datos = JSON.parse(this.responseText)
-                    for (x = 0; x < datos.length; x++) {
-                        html += "<tr>" +
-                            "<td class='two wide' style='text-align: center;'>" + datos[x].id + "</td>" +
-                            "<td class='twelve wide'>" + datos[x].name.toUpperCase() + "</td>" +
-                            "<td class='two wide' style='text-align: center;'>" +
-                            "<span class='numero'>" + datos[x].id + "</span><span class='minutos'>min</span>" +
-                            "</td>" +
-                            "</tr>";
-                    };
+        // function loadDoc() {
+        //     var xhttp = new XMLHttpRequest();
+        //     var html = "";
+        //     xhttp.onreadystatechange = function () {
+        //         if (this.readyState == 4 && this.status == 200) {
+        //             console.log(JSON.parse(this.responseText));
+        //             var datos = JSON.parse(this.responseText)
+        //             for (x = 0; x < datos.length; x++) {
+        //                 html += "<tr>" +
+        //                     "<td class='two wide' style='text-align: center;'>" + datos[x].id + "</td>" +
+        //                     "<td class='twelve wide'>" + datos[x].name.toUpperCase() + "</td>" +
+        //                     "<td class='two wide' style='text-align: center;'>" +
+        //                     "<span class='numero'>" + datos[x].id + "</span><span class='minutos'>min</span>" +
+        //                     "</td>" +
+        //                     "</tr>";
+        //             };
 
-                    document.getElementById("tabla").innerHTML = html;
-                    // document.getElementById("demo").innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("GET", "https://jsonplaceholder.typicode.com/users", true);
-            xhttp.send();
-        }
-        loadDoc()
-        // alert(window.innerWidth)
+        //             document.getElementById("tabla").innerHTML = html;
+        //             // document.getElementById("demo").innerHTML = this.responseText;
+        //         }
+        //     };
+        //     xhttp.open("GET", "https://jsonplaceholder.typicode.com/users", true);
+        //     xhttp.send();
+        // }
+        // loadDoc()
+        // document.getElementsByTagName("table")[0].rows
     </script>
 </body>
 
