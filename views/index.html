@@ -101,10 +101,6 @@
             height: 100vh;
         }
 
-        #tabla {
-            height: 100%;
-
-        }
 
         table tr td {
             font-size: 22px;
@@ -120,43 +116,131 @@
                 display: auto !important;
             }
         } */
+        .i.icon {
+            font-size: 4em !important;
+            margin-top: 40px;
+        }
+
+        .tarjeta {
+            max-width: 90vw;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            height: 100px;
+            border-radius: 15px;
+            justify-content: space-between;
+            width: 100%;
+            padding-right: 30px;
+
+        }
+
+        .color1 {
+            background: #f12711;
+            background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+            background: linear-gradient(to right, #f5af19, #f12711);
+        }
+
+        .color2 {
+            background: #333333;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #dd1818, #333333);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #dd1818, #333333);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        .color3 {
+            background: #00F260;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #0575E6, #00F260);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #0575E6, #00F260);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        .color4 {
+            background: #396afc;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #2948ff, #396afc);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #2948ff, #396afc);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        .color5 {
+            background: #283c86;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #45a247, #283c86);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #45a247, #283c86);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        .color6 {
+            background: #B24592;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #F15F79, #B24592);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #F15F79, #B24592);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
     </style>
 </head>
 
 <body>
     <div id="container">
-        <table id="tabla" class="ui table celled inverted unstackable">
-        </table>
+
+        <!-- <table id="tabla" class="ui table celled inverted unstackable">
+        </table> -->
     </div>
     <script>
         var datos = [
-            { linea: "501", descripcion: "SANTA CLARA a SOMISA por TERM", tiempo: 2 },
-            { linea: "501", descripcion: "SANTA CLARA a SOMISA por SAVIO", tiempo: 5 },
-            { linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
-            { linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
-            { linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
-            { linea: "507", descripcion: "ARROYO DEL MEDIO a B IVBA", tiempo: 7 },
-            { linea: "501", descripcion: "SANTA CLARA a SOMISA por TERM", tiempo: 2 },
-            { linea: "501", descripcion: "SANTA CLARA a SOMISA por SAVIO", tiempo: 5 },
-            { linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
-            { linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
-            { linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
-            { linea: "507", descripcion: "ARROYO DEL MEDIO a B IVBA", tiempo: 7 },
+            { color: 'color1', linea: "501", descripcion: "SANTA CLARA a SOMISA por TERM", tiempo: 2 },
+            { color: 'color2', linea: "501", descripcion: "SANTA CLARA a SOMISA por SAVIO", tiempo: 5 },
+            { color: 'color3', linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
+            { color: 'color4', linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
+            { color: 'color5', linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
+            { color: 'color6', linea: "507", descripcion: "ARROYO DEL MEDIO a B IVBA", tiempo: 7 },
         ];
 
         function CargarTabla() {
             var html = "";
             for (x = 0; x < datos.length; x++) {
-                html += "<tr>" +
-                    "<td class='two wide' style='text-align: center;'>" + datos[x].linea + "</td>" +
-                    "<td class='twelve wide'>" + datos[x].descripcion + "</td>" +
-                    "<td class='two wide' style='text-align: center;'>" +
-                    "<span class='numero'>" + datos[x].tiempo + "</span><span class='minutos'>min</span>" +
-                    "</td>" +
-                    "</tr>";
+                // html += "<tr>" +
+                //     "<td class='two wide' style='text-align: center;'>" + datos[x].linea + "</td>" +
+                //     "<td class='twelve wide'>" + datos[x].descripcion + "</td>" +
+                //     "<td class='two wide' style='text-align: center;'>" +
+                //     "<span class='numero'>" + datos[x].tiempo + "</span><span class='minutos'>min</span>" +
+                //     "</td>" +
+                //     "</tr>";
+                html += '<div class="tarjeta ' + datos[x].color + '">' +
+                    '<div style="display: flex; align-items: center;">' +
+                    '<i class="bus icon"' +
+                    ' style="color: white; font-size: 4em !important; padding-top: 20px; padding-left: 20px; margin-right: .7em;"></i>' +
+                    '<div style="display: flex; flex-direction: column; align-items: center;">' +
+                    '<div style="padding-bottom: 10px;"><span' +
+                    ' style="color: white; font-size: 1.5em; margin-bottom: 10px;">Linea</span></div>' +
+                    '<div>' +
+                    '<span style="color: white; font-weight: bold; font-size: 3em;">' + datos[x].linea + '</span>' +
+                    ' </div>' +
+                    ' </div>' +
+                    '<div style="margin-left: 40px; color: white;">' +
+                    '<h1>' + datos[x].descripcion + '</h1>' +
+                    ' </div>' +
+                    ' </div>' +
+                    '<div style="display: flex; flex-direction: column; align-items: center;">' +
+                    '<div style="margin-bottom: 10px;">' +
+                    '<span style="color: white; font-size: 1.5em; font-weight: bold;">Llega en</span>' +
+                    ' </div>' +
+                    '<div>' +
+                    '<span style="color: white; font-size: 2.5em;">' + datos[x].tiempo + ' MIN</span>' +
+                    ' </div>' +
+                    ' </div>' +
+                    ' </div>'
             };
 
-            document.getElementById("tabla").innerHTML = html;
+            document.getElementById("container").innerHTML = html;
         }
 
         CargarTabla();
