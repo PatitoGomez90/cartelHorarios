@@ -6,14 +6,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cartel Horarios</title>
-    <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            font-family: 'Arial';
+            margin: 0;
+            background-color: black;
+        }
+
+        #container {
+            height: 98vh;
+            width: 98vw;
+            margin: auto;
+            padding-top: 10px;
+        }
+
+        table {
+            border: 3px solid #ddd;
+            width: 100%;
+            height: 100%;
+        }
+
+        table tr td {
+            padding: 10px 5px;
+
+        }
+
+        table tr td:first-child {
+            width: 100px;
+        }
+
+        table tr td:first-child,
+        table tr td:last-child {
+            text-align: center;
+        }
+
+        table tr td:first-child,
+        table tr td span.numero {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        table tr td span.numero {
+            color: red;
+        }
+
+        table tr td span.minutos {
+            color: orange;
+            font-size: 30px;
+            padding-left: 4px;
+            font-weight: bold;
+        }
+
+        table tr td:nth-child(1) {
+            color: orange;
+        }
+
+        table tr td:nth-child(2) {
+            font-size: 30px;
+            font-weight: 500;
+            padding-left: 20px;
+            color: #fffceb;
+        }
+
+        table tr td:not(:last-child) {
+            border-right: 3px solid #ddd;
+        }
+
+        table tr:not(:last-child) td {
+            border-bottom: 3px solid #ddd !important;
+        }
+
+
+        * {
+            transition: all 0.3s ease-out;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h3 {
+            color: #262626;
+            font-size: 17px;
+            line-height: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        p {
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 20px;
+            color: #666666;
+        }
+
+        p.small {
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
     <div id="container">
         <table id="tabla"></table>
     </div>
-    <script src="/index.js"></script>
+    <script>
+        let datos = [
+            { linea: "501", descripcion: "SANTA CLARA a SOMISA por TERM", tiempo: 2 },
+            { linea: "501", descripcion: "SANTA CLARA a SOMISA por SAVIO", tiempo: 5 },
+            { linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
+            { linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
+            { linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
+            { linea: "507", descripcion: "ARROYO DEL MEDIO a B IVBA", tiempo: 7 },
+        ];
+
+        function CargarTabla() {
+            let html = "";
+            datos.map(d => {
+                html += `
+            <tr>
+                <td>${d.linea}</td>
+                <td>${d.descripcion}</td>
+                <td>
+                    <span class="numero">${d.tiempo}</span><span class="minutos">min</span>
+                </td>
+            </tr>
+        `
+            });
+
+            document.getElementById("tabla").innerHTML = html;
+        }
+
+        CargarTabla();
+    </script>
 </body>
 
 </html>
