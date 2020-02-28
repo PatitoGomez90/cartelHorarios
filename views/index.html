@@ -122,7 +122,7 @@
         <table id="tabla"></table>
     </div>
     <script>
-        let datos = [
+        var datos = [
             { linea: "501", descripcion: "SANTA CLARA a SOMISA por TERM", tiempo: 2 },
             { linea: "501", descripcion: "SANTA CLARA a SOMISA por SAVIO", tiempo: 5 },
             { linea: "512", descripcion: "LOS FRESNOS a LA EMILIA", tiempo: 5 },
@@ -132,18 +132,19 @@
         ];
 
         function CargarTabla() {
-            let html = "";
-            datos.map(d => {
+            var html = "";
+            for (x = 0; x < datos.length; x++) {
                 html += `
-            <tr>
-                <td>${d.linea}</td>
-                <td>${d.descripcion}</td>
-                <td>
-                    <span class="numero">${d.tiempo}</span><span class="minutos">min</span>
-                </td>
-            </tr>
-        `
-            });
+                    <tr>
+                        <td>${datos[x].linea}</td>
+                        <td>${datos[x].descripcion}</td>
+                        <td>
+                            <span class="numero">${datos[x].tiempo}</span><span class="minutos">min</span>
+                        </td>
+                    </tr>
+                    }
+                `
+            };
 
             document.getElementById("tabla").innerHTML = html;
         }
