@@ -143,16 +143,13 @@
         function CargarTabla() {
             var html = "";
             for (x = 0; x < datos.length; x++) {
-                html += `
-                    <tr>
-                        <td>${datos[x].linea}</td>
-                        <td>${datos[x].descripcion}</td>
-                        <td>
-                            <span class="numero">${datos[x].tiempo}</span><span class="minutos">min</span>
-                        </td>
-                    </tr>
-                    }
-                `
+                html += "<tr>" +
+                    "<td>" + datos[x].linea + "</td>" +
+                    "<td>" + datos[x].descripcion + "</td>" +
+                    "<td>" +
+                    "<span class='numero'>" + datos[x].tiempo + "</span><span class='minutos'>min</span>" +
+                    "</td>" +
+                    "</tr>";
             };
 
             document.getElementById("tabla").innerHTML = html;
