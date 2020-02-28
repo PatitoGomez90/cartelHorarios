@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cartel Horarios</title>
-    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <!-- <style>
         body {
             font-family: 'Arial';
             margin: 0;
@@ -68,11 +69,11 @@
         }
 
         table tr td:not(:last-child) {
-            border-right: 3px solid #ddd;
+            border-right: 2px solid #ddd;
         }
 
         table tr:not(:last-child) td {
-            border-bottom: 3px solid #ddd !important;
+            border-bottom: 2px solid #ddd !important;
         }
 
 
@@ -94,12 +95,26 @@
             align-items: center;
             justify-content: center;
         }
+    </style> -->
+    <style>
+        #container {
+            height: 100vh;
+        }
+
+        #tabla {
+            height: 100%;
+
+        }
+
+        table tr td {
+            font-size: 22px;
+        }
     </style>
 </head>
 
 <body>
     <div id="container">
-        <table id="tabla">
+        <table id="tabla" class="ui table celled inverted">
         </table>
     </div>
     <script>
@@ -116,7 +131,7 @@
             var html = "";
             for (x = 0; x < datos.length; x++) {
                 html += "<tr>" +
-                    "<td>" + datos[x].linea + "</td>" +
+                    "<td style='width: 60px !important;'>" + datos[x].linea + "</td>" +
                     "<td>" + datos[x].descripcion + "</td>" +
                     "<td>" +
                     "<span class='numero'>" + datos[x].tiempo + "</span><span class='minutos'>min</span>" +
@@ -138,9 +153,9 @@
                     var datos = JSON.parse(this.responseText)
                     for (x = 0; x < datos.length; x++) {
                         html += "<tr>" +
-                            "<td>" + datos[x].id + "</td>" +
-                            "<td>" + datos[x].name + "</td>" +
-                            "<td>" +
+                            "<td style='width: 80px !important; text-align: center;'>" + datos[x].id + "</td>" +
+                            "<td>" + datos[x].name.toUpperCase() + "</td>" +
+                            "<td style='width: 80px !important; text-align: center;'>" +
                             "<span class='numero'>" + datos[x].id + "</span><span class='minutos'>min</span>" +
                             "</td>" +
                             "</tr>";
