@@ -153,9 +153,9 @@
                     var datos = JSON.parse(this.responseText)
                     for (x = 0; x < datos.length; x++) {
                         html += "<tr>" +
-                            "<td style='width: 80px !important; text-align: center;'>" + datos[x].id + "</td>" +
-                            "<td>" + datos[x].name.toUpperCase() + "</td>" +
-                            "<td style='width: 80px !important; text-align: center;'>" +
+                            "<td class='two wide' style='text-align: center;'>" + datos[x].id + "</td>" +
+                            "<td class='twelve wide'>" + datos[x].name.toUpperCase() + "</td>" +
+                            "<td class='two wide' style='text-align: center;'>" +
                             "<span class='numero'>" + datos[x].id + "</span><span class='minutos'>min</span>" +
                             "</td>" +
                             "</tr>";
@@ -169,6 +169,7 @@
             xhttp.send();
         }
         loadDoc()
+        alert(window.innerWidth)
     </script>
 </body>
 
