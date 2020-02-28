@@ -33,7 +33,7 @@ table tr td:last-child {
 
 table tr td:first-child,
 table tr td span.numero {
-    font-size: 50px;
+    font-size: 20px;
     font-weight: bold;
 }
 
